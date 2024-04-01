@@ -2,30 +2,23 @@ from __future__ import print_function
 from __future__ import division
 from __future__ import with_statement
 
-import argparse
 import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.utils.data
-import torch.optim as optim
-# from torch.autograd import Variable
 from torchvision import datasets, transforms
 import random
 from lib.utils import *
-# import networkx as nx
 import matplotlib.pyplot as plt
 
 from util.masking import TriangularCausalMask, ProbMask
-# from encoder import Encoder, EncoderLayer, ConvLayer, EncoderStack
 from encoder import Encoder, EncoderLayer, ConvLayer, EncoderStack, Sampling, SampLayer,RecLinear,LinearLayer
 from decoder import DecoderR, DecoderP, DecoderRecLayer, DecoderPreLayer
 from attn import FullAttention, ProbAttention, AttentionLayer_Rec, AttentionLayer_Pre_Cross, AttentionLayer
-#AttentionLayer for the encoder, decoder-self-attention
 from embed import DataEmbedding,LstmEmbedding
 from sklearn import manifold
 
-# torch.cuda.set_device(9)
 SEED = 2020
 
 random.seed(SEED)
